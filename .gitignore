@@ -1,0 +1,6 @@
+# Compiled source 
+*.pyc
+
+# ide metadata
+.project
+.pydevproject
