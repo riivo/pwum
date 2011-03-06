@@ -1,8 +1,7 @@
-'''
-a pretty naive approach
-'''
 import numpy
 import operator
+
+from pwum import config
 
 def deocarate_timings(patterns, log, total):
     """ return a list of average times spent on each page, based on transaction"""
@@ -25,7 +24,7 @@ def deocarate_timings(patterns, log, total):
 def output_readable(timings, out):
     out.h1("Sequential patterns with timing ")
     out.tbl()
-    for k, v in timings.items():
+    for _, v in timings.items():
         v.output(out)
     out.e_tbl()  
 
