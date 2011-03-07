@@ -8,11 +8,12 @@ from pwum.util import output
 from pwum.algorithms import string_similarity
 
 
-def cluster(parser, k, filename):
+def cluster(parser, k):
     """
-    general method for clustering
+    general method for clustering data
     """
     
+    #get index number for every page
     code_book = parser.get_data_encoding(page_min_occurance=5)
     
     #use only sequence of pages visited
@@ -21,7 +22,7 @@ def cluster(parser, k, filename):
     #use vector representation (v1,v2,v2) where v1 means page v1 was visited    
     #models = session_modeling.convert_sessions_to_vector(simple_session, code_book, binary=True)
     
-    #construct markove chains, estimate transition probabilities
+    #construct markov chains, estimate transition probabilities
     models = session_modeling.convert_sessions_to_markov(simple_session, code_book, bayes=False)
     idx, sse, _ = Pycluster.kcluster(models, k, method='a', dist='e')
  
@@ -32,8 +33,7 @@ def cluster(parser, k, filename):
     for name, clusterid in zip(simple_session, idx):
         clusters.setdefault(clusterid, []).append(name)
     
-    write_output(k, clusters, sse, filename)
-    return clusters
+    return clusters, sse
     
 def write_output(k,clusters, sse, filename):    
     out = output.Ouput()

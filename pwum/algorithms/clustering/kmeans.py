@@ -10,12 +10,12 @@ def choose_initial(data, k, distfun):
     return set_c
 
 def eucledian_distance(model1, model2):
-   """
-   eucledian between two transition matrices
-   """
-   d = np.abs(model1 - model2)**2
-   s = np.sqrt(np.sum(d))
-   return s    
+    """
+    eucledian between two transition matrices
+    """
+    d = np.abs(model1 - model2)**2
+    s = np.sqrt(np.sum(d))
+    return s    
 def kcluster(data, k, distfun=eucledian_distance, initial=None, t=0.0001,  maxiter=10):
     DOUBLE_MAX = 1.797693e308
     n = len(data)
@@ -26,10 +26,10 @@ def kcluster(data, k, distfun=eucledian_distance, initial=None, t=0.0001,  maxit
     c1 = []
     for i in xrange(k):
         c1.append(np.zeros(shape))
-		
-	c = choose_initial(data, k, distfun)
-	niter = 0   
-	error = 0.0
+
+    c = choose_initial(data, k, distfun)
+    niter = 0   
+    error = 0.0
 
     while True:
         old_error = error

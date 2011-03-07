@@ -3,7 +3,7 @@ import operator
 from pwum.algorithms import apriori, sequences
 from pwum.util import output, time_decorator
 
-def analyse_clickstream(parser, support, session_filter_fn, filename):
+def analyse_clickstream(parser, support, session_filter_fn):
     """
     finds frequent patterns from parser and stores in filename
     """
@@ -16,10 +16,8 @@ def analyse_clickstream(parser, support, session_filter_fn, filename):
     itemsets_sorted = sorted(supports.iteritems(), key=operator.itemgetter(1), reverse=True)
     large_reference_sequence, _ = sequences.large_reference_sequences(transactions, min_support)
 
-    if filename is not None:
-        write_output(parser, support, filename, db_size, itemsets_sorted, large_reference_sequence)
     
-    return itemsets_sorted, large_reference_sequence
+    return itemsets_sorted, large_reference_sequence, db_size
     
 def write_output(parser, support, filename, db_size, itemsets_sorted, large_reference_sequence):
     ###write out to file

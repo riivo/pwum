@@ -4,7 +4,7 @@ some global constants
 
 #min support for pattern mining, relative
 MIN_SUPPORT = 0.06
-
+CLUSTERS = 20
 
 
 HOME_PAGE = "/"
