@@ -7,8 +7,8 @@ Two main functions:
 
 Finding frequent patters. Extract frequently co-accessed pages in web sessions. Uses traditonal frequent pattern mining algorithm Apriori. For more information on the implementation, please see [here](http://riivo.net/wp-content/uploads/2011/03/report-pattern-mining-web-logs.pdf)
 
-Finding similar sessions based on behaviour,i.e, visited pages by clustering. Avaible methods are based on building markov chain like transition matrix out of session and clustering these or representing sessions as simple feature vectors. Clustering currently done by k-means algorithm.
-More detailsed description [here](http://riivo.net/wp-content/uploads/2011/03/poster-clustering-web-users.pdf)
+Finding similar sessions based on behaviour,i.e, visited pages by clustering. Available methods are based on building Markov chain like transition matrix out of session and clustering these or representing sessions as simple feature vectors. Clustering currently done by k-means algorithm.
+More detailed description [here](http://riivo.net/wp-content/uploads/2011/03/poster-clustering-web-users.pdf)
 
 
 
@@ -28,18 +28,22 @@ Using pwum
 
     python pwum.py [logfile|directory containing only logs]
 
+or see options
+
+    python pwum.py -h
+
 outputs two html files to `example` folder, one containing information about frequent patterns and other lists clusters information.
 
 
 
 
 ## Some notes
-Due to complex nature of the task, the current scripts are not meant for distributed as python package. Currently there are many implemented methods in the code, but there is no convinient configuration availble to select from.
+Due to complex nature of the task, the current scripts are not meant for distributed as python package. Currently there are many implemented methods in the code, but there is no convenient configuration available to select from.
 
 Only apache log files in common log format are supported (see data for examples).
 logparser.py and logreader.py are responsible for construction session from files. If you have logs with different structure, modify the implementation. logparser currently composes sessions using timeout window.
 
-Some configuration options are availble through config.py editing.
+Some configuration options are available through config.py editing.
 
 Note this code is meant for prototyping and is not scalable to large amounts of data, as it keeps all data in memory.
 
