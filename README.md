@@ -5,10 +5,10 @@ pwum is a set of python scripts for working with web log files and extracting fr
 
 Two main functions:
 
-Finding frequent patters. Extract frequently co-accessed pages in web sessions. Uses traditonal frequent pattern mining algorithm Apriori. For more information on the implementation, please see [here](http://riivo.net/wp-content/uploads/2011/03/report-pattern-mining-web-logs.pdf)
+Finding frequent patters. Extract frequently co-accessed pages in web sessions. Uses traditonal frequent pattern mining algorithm Apriori. For more information on the implementation, please see [here](http://xc.ee/wp-content/uploads/2011/03/report-pattern-mining-web-logs.pdf)
 
 Finding similar sessions based on behaviour,i.e, visited pages by clustering. Available methods are based on building Markov chain like transition matrix out of session and clustering these or representing sessions as simple feature vectors. Clustering currently done by k-means algorithm.
-More detailed description [here](http://riivo.net/wp-content/uploads/2011/03/poster-clustering-web-users.pdf)
+More detailed description [here](http://xc.ee/wp-content/uploads/2011/03/poster-clustering-web-users.pdf)
 
 
 
